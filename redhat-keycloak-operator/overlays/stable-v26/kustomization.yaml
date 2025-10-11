@@ -8,6 +8,7 @@ patches:
   - target:
       kind: Subscription
       name: rhbk-operator
+      namespace: keycloak
     patch: |-
       - op: replace
         path: /spec/channel
