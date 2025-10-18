@@ -4,5 +4,4 @@ kind: Kustomization
 namespace: ostoy
 
 resources:
-  - namespace.yaml
-  - https://raw.githubusercontent.com/daytwolabs/ostoy/refs/heads/main/ostoy.yaml
+  - github.com/daytwo-internal/gitops-catalog/ostoy/overlays/default
