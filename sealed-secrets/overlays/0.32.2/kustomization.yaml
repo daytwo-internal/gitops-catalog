@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: sealed-secrets
+
+resources:
+  - https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.32.2/controller.yaml
+
+# Remove the SCC requiring anyuid
+patches:
+  - patch: |-
+      - op: remove
+        path: /spec/template/spec/securityContext
+    target:
+      group: apps
+      kind: Deployment
+      name: sealed-secrets-controller
+      version: v1
