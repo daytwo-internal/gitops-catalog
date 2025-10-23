@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailhog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mailhog
+  template:
+    metadata:
+      labels:
+        app: mailhog
+    spec:
+      containers:
+        - name: mailhog
+          image: docker.io/mailhog/mailhog:latest
+          ports:
+            - name: smtp
+              containerPort: 1025
+              protocol: TCP
+            - name: http
+              containerPort: 8025
+              protocol: TCP
+          readinessProbe:
+            tcpSocket:
+              port: 8025
+          livenessProbe:
+            tcpSocket:
+              port: 8025
+          env:
+            - name: MH_HOSTNAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
