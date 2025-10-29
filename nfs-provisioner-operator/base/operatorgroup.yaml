@@ -1,0 +1,10 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  annotations:
+    olm.providedAPIs: NFSProvisioner.v1alpha1.cache.jhouse.com
+  name: nfsprovisioner-operator
+  namespace: nfsprovisioner-operator
+spec:
+  targetNamespaces:
+  - nfsprovisioner-operator
