@@ -3,7 +3,7 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - externalsecrets.yaml
+  - externalsecretconfig.yaml
 
 patches:
   - target:
