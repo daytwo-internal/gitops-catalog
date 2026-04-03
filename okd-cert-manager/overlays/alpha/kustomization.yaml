@@ -1,0 +1,8 @@
+resources:
+  - ../../base
+
+patches:
+  - target:
+      kind: Subscription
+      name: cert-manager-operator
+    path: patch-channel.yaml
