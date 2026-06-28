@@ -11,4 +11,4 @@ patches:
     patch: |-
       - op: replace
         path: /spec/startingCSV
-        value: kubevirt-hyperconverged-operator.v4.20.0
+        value: kubevirt-hyperconverged-operator.v4.22.0
